@@ -1,0 +1,69 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: customer-api
+  namespace: ${NAMESPACE:default}  # Parameterized namespace
+  labels:
+    app: customer-api
+    tier: backend
+    version: ${VERSION:latest}
+  annotations:
+    kubernetes.io/change-cause: "Release ${VERSION:latest} - Initial deployment"
+spec:
+  # Start with 2 replicas - adjust based on load
+  replicas: 2
+  selector:
+    matchLabels:
+      app: customer-api
+  # Using RollingUpdate for zero-downtime deployments
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 1  # How many pods can be created above desired replicas
+      maxUnavailable: 0  # Never go below desired replicas during update
+  template:
+    metadata:
+      labels:
+        app: customer-api
+      annotations:
+        prometheus.io/scrape: "true"
+        prometheus.io/path: "/actuator/prometheus"
+        prometheus.io/port: "8080"
+    spec:
+      containers:
+      - name: customer-api
+        image: ${DOCKER_REGISTRY}/customer-api:${VERSION}
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 8080
+        env:
+        - name: SPRING_APPLICATION_NAME
+          value: customer-api
+        - name: JAVA_OPTS
+          value: "-Xmx512m -Xms256m"
+        resources:
+          requests:
+            memory: "512Mi"
+            cpu: "200m"
+          limits:
+            memory: "1Gi"
+            cpu: "500m"
+        livenessProbe:
+          httpGet:
+            path: /actuator/health/liveness
+            port: 8080
+          initialDelaySeconds: 60
+          periodSeconds: 15
+        readinessProbe:
+          httpGet:
+            path: /actuator/health/readiness
+            port: 8080
+          initialDelaySeconds: 30
+          periodSeconds: 10
+        volumeMounts:
+        - name: config-volume
+          mountPath: /config
+      volumes:
+      - name: config-volume
+        configMap:
+          name: customer-api-config
