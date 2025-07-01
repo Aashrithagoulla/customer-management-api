@@ -3,7 +3,7 @@
 # Build the client application
 echo "Building client application..."
 cd "$(dirname "$0")"
-mvn clean package
+../mvnw clean package
 
 # Check if build was successful
 if [ $? -eq 0 ]; then

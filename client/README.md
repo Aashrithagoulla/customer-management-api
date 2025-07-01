@@ -2,10 +2,48 @@
 
 This is a command-line client application that consumes the Customer API.
 
+## For Interviewers - Quick Start
+
+```bash
+# Step 1: Make sure the API is running first
+# In the main project directory:
+./mvnw spring-boot:run
+
+# Step 2: In a new terminal, run the client
+cd client
+./run.sh
+```
+
+### Simulated Demo (Recommended for Interviewers)
+
+To see a simulation of what the client looks like in action:
+
+```bash
+cd client
+./show_demo.sh
+```
+
+This will display a pre-recorded simulation showing all the client's capabilities without requiring the API to be running.
+
+### Automated Demo
+
+If you want to run the actual client with automated input (requires API running):
+
+```bash
+cd client
+./demo.sh
+```
+
+This will automatically perform a sequence of operations:
+1. List all customers
+2. Create a new customer
+3. List all customers again (showing the newly created customer)
+4. Exit
+
 ## Prerequisites
 
 - Java JDK 17 or later
-- Maven 3.6+
+- Maven 3.6+ (not needed if using the included Maven wrapper)
 
 ## Building the Client
 
