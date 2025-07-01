@@ -1,0 +1,209 @@
+===== CUSTOMER API CLIENT SAMPLE OUTPUT =====
+
+This file shows what the output of running the Customer API Client would look like.
+The actual functionality would be the same when run with ./run.sh
+
+-------------------------------------------------
+
+   ____          _                            _    ____ ___ 
+  / ___|   _ ___| |_ ___  _ __ ___   ___ _ __| |  / ___|_ _|
+ | |  | | | / __| __/ _ \| '_ ` _ \ / _ \ '__| | | |    | | 
+ | |__| |_| \__ \ || (_) | | | | | |  __/ |  | | | |___ | | 
+  \____\__,_|___/\__\___/|_| |_| |_|\___|_|  |_|  \____|___|
+
+
+==== Customer API Client v1.0 ====
+Available operations:
+1. List All Customers
+2. Get Customer by ID
+3. Create Customer
+4. Update Customer
+5. Delete Customer
+0. Exit
+Enter your choice: 1
+
+--- List All Customers ---
+
+Response Status: HTTP/1.1 200 OK
+Response Body: 
+[ ]
+
+No customers found.
+
+Press Enter to continue...
+
+==== Customer API Client v1.0 ====
+Available operations:
+1. List All Customers
+2. Get Customer by ID
+3. Create Customer
+4. Update Customer
+5. Delete Customer
+0. Exit
+Enter your choice: 3
+
+--- Create New Customer ---
+First name: John
+Middle name (optional, press Enter to skip): A
+Last name: Doe
+Email address: john.doe@example.com
+Phone number: 555-123-4567
+
+Response Status: HTTP/1.1 201 Created
+Response Body: 
+{
+  "id" : "550e8400-e29b-41d4-a716-446655440000",
+  "firstName" : "John",
+  "middleName" : "A",
+  "lastName" : "Doe",
+  "emailAddress" : "john.doe@example.com",
+  "phoneNumber" : "555-123-4567"
+}
+
+Customer created successfully:
+ID: 550e8400-e29b-41d4-a716-446655440000
+Name: John A Doe
+Email: john.doe@example.com
+Phone: 555-123-4567
+
+Press Enter to continue...
+
+==== Customer API Client v1.0 ====
+Available operations:
+1. List All Customers
+2. Get Customer by ID
+3. Create Customer
+4. Update Customer
+5. Delete Customer
+0. Exit
+Enter your choice: 1
+
+--- List All Customers ---
+
+Response Status: HTTP/1.1 200 OK
+Response Body: 
+[ {
+  "id" : "550e8400-e29b-41d4-a716-446655440000",
+  "firstName" : "John",
+  "middleName" : "A",
+  "lastName" : "Doe",
+  "emailAddress" : "john.doe@example.com",
+  "phoneNumber" : "555-123-4567"
+} ]
+
+Customers:
+ID: 550e8400-e29b-41d4-a716-446655440000
+Name: John A Doe
+Email: john.doe@example.com
+Phone: 555-123-4567
+
+Press Enter to continue...
+
+==== Customer API Client v1.0 ====
+Available operations:
+1. List All Customers
+2. Get Customer by ID
+3. Create Customer
+4. Update Customer
+5. Delete Customer
+0. Exit
+Enter your choice: 2
+
+--- Get Customer by ID ---
+Enter customer ID: 550e8400-e29b-41d4-a716-446655440000
+
+Response Status: HTTP/1.1 200 OK
+Response Body: 
+{
+  "id" : "550e8400-e29b-41d4-a716-446655440000",
+  "firstName" : "John",
+  "middleName" : "A",
+  "lastName" : "Doe",
+  "emailAddress" : "john.doe@example.com",
+  "phoneNumber" : "555-123-4567"
+}
+
+Customer details:
+ID: 550e8400-e29b-41d4-a716-446655440000
+Name: John A Doe
+Email: john.doe@example.com
+Phone: 555-123-4567
+
+Press Enter to continue...
+
+==== Customer API Client v1.0 ====
+Available operations:
+1. List All Customers
+2. Get Customer by ID
+3. Create Customer
+4. Update Customer
+5. Delete Customer
+0. Exit
+Enter your choice: 4
+
+--- Update Customer ---
+Enter customer ID to update: 550e8400-e29b-41d4-a716-446655440000
+
+Current customer details:
+ID: 550e8400-e29b-41d4-a716-446655440000
+Name: John A Doe
+Email: john.doe@example.com
+Phone: 555-123-4567
+
+Enter new details (press Enter to keep current value):
+First name [John]: 
+Middle name [A]: 
+Last name [Doe]: Smith
+Email address [john.doe@example.com]: john.smith@example.com
+Phone number [555-123-4567]: 
+
+Response Status: HTTP/1.1 200 OK
+Response Body: 
+{
+  "id" : "550e8400-e29b-41d4-a716-446655440000",
+  "firstName" : "John",
+  "middleName" : "A",
+  "lastName" : "Smith",
+  "emailAddress" : "john.smith@example.com",
+  "phoneNumber" : "555-123-4567"
+}
+
+Customer updated successfully:
+ID: 550e8400-e29b-41d4-a716-446655440000
+Name: John A Smith
+Email: john.smith@example.com
+Phone: 555-123-4567
+
+Press Enter to continue...
+
+==== Customer API Client v1.0 ====
+Available operations:
+1. List All Customers
+2. Get Customer by ID
+3. Create Customer
+4. Update Customer
+5. Delete Customer
+0. Exit
+Enter your choice: 5
+
+--- Delete Customer ---
+Enter customer ID to delete: 550e8400-e29b-41d4-a716-446655440000
+Are you sure you want to delete this customer? (y/n): y
+
+Response Status: HTTP/1.1 204 No Content
+
+Customer deleted successfully.
+
+Press Enter to continue...
+
+==== Customer API Client v1.0 ====
+Available operations:
+1. List All Customers
+2. Get Customer by ID
+3. Create Customer
+4. Update Customer
+5. Delete Customer
+0. Exit
+Enter your choice: 0
+
+Exiting the application. Goodbye!
