@@ -1,10 +1,22 @@
 # Customer API
 
-Spring Boot RESTful API for Customer Management
+A comprehensive Spring Boot RESTful API for Customer Management designed with best practices and modern technologies.
+
+## Project Overview
+
+This repository demonstrates a production-ready Customer Management API built with Spring Boot. The system provides a complete solution for managing customer data with robust validation, proper error handling, and comprehensive test coverage.
 
 ## Project Contents
 
-This repository contains a complete Spring Boot application for customer management. All source code and configuration files are available in the `CustomerAPI.zip` file.
+This repository contains a complete Spring Boot application for customer management with full CRUD operations, validation, error handling, and observability features. The project includes:
+
+- RESTful API endpoints
+- Service and repository layers
+- H2 in-memory database
+- Comprehensive tests
+- Docker containerization
+- Kubernetes deployment manifests
+- CI/CD workflow configuration
 
 ## Features
 
@@ -34,6 +46,40 @@ This repository contains a complete Spring Boot application for customer managem
 - `POST /api/v1/customers` - Create a new customer
 - `PUT /api/v1/customers/{id}` - Update a customer
 - `DELETE /api/v1/customers/{id}` - Delete a customer
+
+## Client Application
+
+The repository includes a Java command-line client application that demonstrates how to interact with the Customer API. This client provides a simple interface for:
+
+- Creating new customers
+- Retrieving customer information
+- Updating existing customers
+- Deleting customers
+
+The client application is located in the `client` directory and can be run with:
+
+```bash
+cd client
+./run.sh
+```
+
+For a guided demonstration of the client's capabilities, use the demo script:
+
+```bash
+cd client
+./show_demo.sh
+```
+
+## Technology Stack
+
+- **Backend**: Spring Boot 3.5.x, Java 17
+- **Database**: H2 (in-memory for demo purposes)
+- **API Documentation**: Spring REST Docs
+- **Testing**: JUnit 5, Mockito, Spring Boot Test
+- **Build Tool**: Maven
+- **Containerization**: Docker
+- **Orchestration**: Kubernetes
+- **CI/CD**: GitHub Actions
 
 ## Key Project Files
 
